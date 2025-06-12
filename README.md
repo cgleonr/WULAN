@@ -16,7 +16,7 @@ Whether you're on your home network or away, this solution allows you to manage 
 * **Client-Side UI Performance:** The aesthetic UI runs efficiently in your browser, minimizing Raspberry Pi's computational load.
 
 ## Project Structure
-
+```
 your-project-root/
 ├── app.py                      # Flask application: API endpoints and UI serving
 ├── docker-compose.yml          # Docker Compose configuration for deployment
@@ -36,8 +36,7 @@ your-project-root/
 │   └── background_texture.webp # Background image/texture for the UI
 └── ssh_keys/                   # Directory to hold your SSH private key (on the Pi)
 └── id_rsa                  # Your SSH private key (chmod 600)
-
-
+```
 ---
 
 ## Getting Started
