@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  wol-server:
+    build: .
+    container_name: wol_server_container
+    ports:
+      - "8000:8000"
+    restart: always
+    environment:
+      # --- IMPORTANT: Configure these environment variables ---
+      - TARGET_MAC_ADDRESS=XX:XX:XX:XX:XX:XX  # <--- REPLACE WITH YOUR DESKTOP'S MAC ADDRESS
+      - TARGET_IP_ADDRESS=192.168.1.XXX      # <--- REPLACE WITH YOUR DESKTOP'S STATIC IP ADDRESS
+      - SSH_USERNAME=your_desktop_username   # <--- REPLACE WITH YOUR DESKTOP'S USERNAME FOR SSH
+      # - SSH_KEY_PATH=/app/ssh_keys/id_rsa # No need to set if using default in app.py
+    volumes:
+      # Mount your SSH private key.
+      # Replace './ssh_keys/id_rsa' with the actual path to your PRIVATE KEY on your Raspberry Pi.
+      # Create this directory and put your key there on the Pi!
+      - ./ssh_keys/id_rsa:/app/ssh_keys/id_rsa:ro
+    # For security, you might also want to set a non-root user in the Dockerfile
+    # user: "1000:1000" # Example: use user ID 1000
